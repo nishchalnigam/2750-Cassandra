@@ -1,6 +1,6 @@
 # 2750-Cassandra
 
-## Part 1: Installing Cassandra on the linux VM's
+## Part 1: Setting up Cassandra on the linux VM's
 
 1. Make sure JAVA_HOME path is added in the "~/.bashrc" file
 	Type `sudo vim ~/.bashrc` and add the path in the end. The path is usually in the `/usr/lib/jvm/` folder.
@@ -30,4 +30,9 @@
 4. Start Cassandra with `sudo service cassandra start` and check the status using `nodetool status` and `sudo service cassandra status` commands:
 
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Nodetool%20status.JPG) 
- 
+
+Configuring on 3 nodes remaining
+
+## Part 2: Importing Data into Cassandra:
+
+1. Make sure Python is installed on the VM, and then run CQL with the `cqlsh` command
