@@ -7,6 +7,7 @@
 	Type `sudo vim ~/.bashrc` and add the path in the end. The path is usually in the `/usr/lib/jvm/` folder.
 
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Bashrc%20file.JPG) 
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Bashrc%20file.PNG) 
   
 	Check the Path by typing `echo $JAVA_HOME`
 
