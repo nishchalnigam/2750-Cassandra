@@ -26,3 +26,8 @@
 	Install Cassandra:
 	
 	`sudo apt-get install cassandra`
+
+4. Start Cassandra with `sudo service cassandra start` and check the status using `nodetool status` and `sudo service cassandra status` commands:
+
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Nodetool%20status.JPG) 
+ 
