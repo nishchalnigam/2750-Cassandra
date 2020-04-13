@@ -1,6 +1,7 @@
 # 2750-Cassandra
 
 ## Part 1: Setting up Cassandra on the linux VM's
+### A: Setup on Individual Nodes
 
 1. Make sure JAVA_HOME path is added in the "~/.bashrc" file  
 	Type `sudo vim ~/.bashrc` and add the path in the end. The path is usually in the `/usr/lib/jvm/` folder.
@@ -31,7 +32,31 @@
 
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Nodetool%20status.JPG) 
 
-Configuring on 3 nodes remaining
+### B: Configure Cassandra nodes to make them work together
+
+1. Stop Cassandra on all three nodes:  
+	`sudo service cassandra stop`
+
+2. Delete the default dataset:  
+	`sudo rm -rf /var/lib/cassandra/data/system/*`
+
+3. Edit the configuration file ***cassandra.yaml*** on all 3 nodes.It is located in the /etc/cassandra directory:
+
+	i. The directive `cluster_name` should be same across all the nodes:  
+	`cluster_name: 'Test Cluster'`
+	
+	ii. Update `-seeds:` by adding all 3 IP addresses, separated by commas:  
+	`seeds: "206.81.9.191,67.205.176.120,206.81.9.184"`
+	
+	iii. Update `listen_address` and `rpc_address` on each node to the IP address to that node. For "206.81.9.191", it should look like:  
+	`listen_address: 206.81.9.191`  
+	`rpc_address: 206.81.9.191`
+	
+	iv. Update `endpoint_switch` from `SimpleSnitch` to `GossipingPropertyFileSnitch`:  
+	`endpoint_snitch: GossipingPropertyFileSnitch`
+	
+	v. Finally, add the following directive at the end of the file:  
+	`auto_bootstrap: false`
 
 ## Part 2: Importing Data into Cassandra:
 
