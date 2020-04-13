@@ -42,21 +42,32 @@
 
 3. Edit the configuration file ***cassandra.yaml*** on all 3 nodes.It is located in the /etc/cassandra directory:
 
-	i. The directive `cluster_name` should be same across all the nodes:  
+	a. The directive `cluster_name` should be same across all the nodes:  
 	`cluster_name: 'Test Cluster'`
 	
-	ii. Update `-seeds:` by adding all 3 IP addresses, separated by commas:  
+	b. Update `-seeds:` by adding all 3 IP addresses, separated by commas:  
 	`seeds: "206.81.9.191,67.205.176.120,206.81.9.184"`
 	
-	iii. Update `listen_address` and `rpc_address` on each node to the IP address to that node. For "206.81.9.191", it should look like:  
+	c. Update `listen_address` and `rpc_address` on each node to the IP address to that node.  
+	For "206.81.9.191", it should look like:  
 	`listen_address: 206.81.9.191`  
 	`rpc_address: 206.81.9.191`
 	
-	iv. Update `endpoint_switch` from `SimpleSnitch` to `GossipingPropertyFileSnitch`:  
+	d. Update `endpoint_switch` from `SimpleSnitch` to `GossipingPropertyFileSnitch`:  
 	`endpoint_snitch: GossipingPropertyFileSnitch`
 	
-	v. Finally, add the following directive at the end of the file:  
+	e. Finally, add the following directive at the end of the file:  
 	`auto_bootstrap: false`
+	
+	Save the ***cassandra.yaml*** file all on 3 nodes
+
+4. Start Cassandra on all 3 nodes again:  
+	`sudo service cassandra start`
+
+5. Check the status of the clusters with the `sudo nodetool status` command. All 3 nodes should be listed:  
+
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/MutliNodeCluster.PNG) 
+
 
 ## Part 2: Importing Data into Cassandra:
 
