@@ -71,4 +71,26 @@
 
 ## Part 2: Importing Data into Cassandra:
 
-1. Make sure Python is installed on the VM, and then run CQL with the `cqlsh` command
+1. Make sure Python is installed on the VM, and then run CQL with the `cqlsh <nodeIPAdress>` command.  
+
+2. In the CQL Terminal, create a keyspace:  
+	`CREATE KEYSPACE test_keyspace WITH replication = {'class': 'SimpleStrategy','replication_factor':'1'} AND durable_writes = 'true';`
+
+3. Create a table with all the **Common Log Format columns** :  
+
+	`CREATE TABLE access_log (IP_Address text, client_id text, client_username text, time text,timezone text, request_line text, status_code text, object_size text, PRIMARY KEY(IP_Address,time,request_line));`
+	
+	Here, we are using the combination of IP_Address, timestamp and request line as the primary key.
+	
+4. Import the access_log data into your table using the copy command:
+
+	`COPY access_log (IP_Address , client_id , client_username , time , timezone , request_line , status_code, object_size) FROM '/home/student/access_log' WITH DELIMITER=' ';`
+
+	Check the data with a simple select query:
+	`select * from access_log where IP_Address = '10.207.188.188' limit 5;`
+	
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/ImportingAccessLog.png) 
+
+ 
+
+
