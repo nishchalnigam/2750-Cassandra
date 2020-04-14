@@ -86,11 +86,26 @@
 
 	`COPY access_log (IP_Address , client_id , client_username , time , timezone , request_line , status_code, object_size) FROM '/home/student/access_log' WITH DELIMITER=' ';`
 
-	Check the data with a simple select query:
+	Check the data with a simple select query:  
 	`select * from access_log where IP_Address = '10.207.188.188' limit 5;`
 	
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/ImportingAccessLog.png) 
 
+## Part 3: Operate Data in Cassandra:
+ 
+1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?
+
+2. How many hits were made from the IP: 10.207.188.188?
+	Ans: 398
+
+	`select count(*) from cloud_log.access_log where IP_Address = '10.207.188.188' ;`
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q2.PNG) 
+
+
+3. Which path in the website has been hit most? How many hits were made to
+the path?
+
+4. Which IP accesses the website most? How many accesses were made by it?
  
 
 
