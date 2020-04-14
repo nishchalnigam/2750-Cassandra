@@ -40,7 +40,7 @@
 2. Delete the default dataset:  
 	`sudo rm -rf /var/lib/cassandra/data/system/*`
 
-3. Edit the configuration file ***cassandra.yaml*** on all 3 nodes.It is located in the /etc/cassandra directory:
+3. Edit the configuration file **cassandra.yaml** on all 3 nodes.It is located in the /etc/cassandra directory:
 
 	a. The directive `cluster_name` should be same across all the nodes:  
 	`cluster_name: 'Test Cluster'`
@@ -59,7 +59,7 @@
 	e. Finally, add the following directive at the end of the file:  
 	`auto_bootstrap: false`
 	
-	Save the ***cassandra.yaml*** file all on 3 nodes
+	Save the **cassandra.yaml** file all on 3 nodes
 
 4. Start Cassandra on all 3 nodes again:  
 	`sudo service cassandra start`
@@ -74,9 +74,11 @@
 1. Make sure Python is installed on the VM, and then run CQL with the `cqlsh <nodeIPAdress>` command.  
 
 2. In the CQL Terminal, create a keyspace:  
-	`CREATE KEYSPACE test_keyspace WITH replication = {'class': 'SimpleStrategy','replication_factor':'1'} AND durable_writes = 'true';`
+	`CREATE KEYSPACE cloud_log WITH replication = {'class': 'SimpleStrategy','replication_factor':'1'} AND durable_writes = 'true';`
+	
+	Use that keyspace with the `use cloud_log ;` command.
 
-3. Create a table with all the **Common Log Format columns** :  
+3. Create a table in the **cloud_log** keyspace with all the **Common Log Format** columns :  
 
 	`CREATE TABLE access_log (IP_Address text, client_id text, client_username text, time text,timezone text, request_line text, status_code text, object_size text, PRIMARY KEY(IP_Address,time,request_line));`
 	
@@ -94,6 +96,7 @@
 ## Part 3: Operate Data in Cassandra:
  
 1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?
+	Ans: 24292
 
 2. How many hits were made from the IP: 10.207.188.188?
 	Ans: 398
