@@ -1,6 +1,6 @@
-# 2750-Cassandra
+# Multi-Node Cluster Database with Cassandra on Linux
 
-## Part 1: Setting up Cassandra on the linux VM's
+## Part 1: Setting up Cassandra on the Linux VM's
 ### A: Setup on Individual Nodes
 
 1. Make sure JAVA_HOME path is added in the "~/.bashrc" file  
