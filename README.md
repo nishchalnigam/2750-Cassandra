@@ -106,15 +106,15 @@
 	
 	Check the data with a simple select query:
 	`select * from request_line_details limit 5;`
-	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Request_line.png) 
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Request_line.PNG) 
 
 
 ## Part 3: Operate Data in Cassandra:
 
-1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?
+1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?  
 	Ans: 24292
 	
-	`select count(path) from request_line_details where path = '/assets/img/release-schedule-logo.png\';`
+	`select count(*) from request_line_details where path = '/assets/img/release-schedule-logo.png\';`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q1.PNG)
 
 2. How many hits were made from the IP: 10.207.188.188?
