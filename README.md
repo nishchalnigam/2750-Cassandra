@@ -93,10 +93,29 @@
 	
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/ImportingAccessLog.png) 
 
+## Create additional table `Request_line_details` to operate on `path` in the `request_line` column:  
+
+1. In order to run CQL Queries on `path`, we need to make another table with `path` as the main primary key.
+	`CREATE TABLE Request_line_details (IP_Address text, time text,method text, path text, protocol text, PRIMARY KEY(path,IP_Address,time,method,protocol));`
+
+2. To load data into this table, we first need to split the `request_line` column. In order to do so, we first export the data into a new csv file:  
+	`COPY cloud_log.access_log (ip_address,time,request_line) TO 'requestline.csv' with DELIMITER = ' ' and QUOTE = ' ';`
+
+3. Next, we copy data from **requestline.csv** to the `request_line_details` table:  
+	`COPY cloud_log.request_line_details  (IP_ADDRESS,time,method, path, protocol) FROM 'requestline.csv' WITH DELIMITER = ' ' and QUOTE = '"' and ESCAPE = '*';`
+	
+	Check the data with a simple select query:
+	`select * from request_line_details limit 5;`
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Request_line.png) 
+
+
 ## Part 3: Operate Data in Cassandra:
- 
+
 1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?
 	Ans: 24292
+	
+	`select count(path) from request_line_details where path = '/assets/img/release-schedule-logo.png\';`
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q1.PNG)
 
 2. How many hits were made from the IP: 10.207.188.188?
 	Ans: 398
