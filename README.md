@@ -112,7 +112,7 @@
 ## Part 3: Operate Data in Cassandra:
 
 1. How many hits were made to the website item “/assets/img/release-schedule-logo.png”?  
-	Ans: 24292
+	Ans: 24282
 	
 	`select count(*) from request_line_details where path = '/assets/img/release-schedule-logo.png\';`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q1.PNG)
