@@ -95,7 +95,7 @@
 
 ## Create additional table `Request_line_details` to operate on `path` in the `request_line` column:  
 
-1. In order to run CQL Queries on `path`, we need to make another table with `path` as the main primary key.
+1. In order to run CQL Queries on `path`, we need to make another table with `path` as the main primary key.  
 	`CREATE TABLE Request_line_details (IP_Address text, time text,method text, path text, protocol text, PRIMARY KEY(path,IP_Address,time,method,protocol));`
 
 2. To load data into this table, we first need to split the `request_line` column. In order to do so, we first export the data into a new csv file:  
