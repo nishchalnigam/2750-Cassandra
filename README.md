@@ -123,10 +123,10 @@
 	`select count(*) from cloud_log.access_log where IP_Address = '10.207.188.188' ;`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q2.PNG) 
 
-### For Q3 and Q4, we will use python scripts and `Cassandra-driver`
-	First run:
-	`pip install cassandra-driver`
-
+### For Q3 and Q4, we will use python scripts and Cassandra-driver:
+	 
+First run `pip install cassandra-driver`
+ 
 3. Which path in the website has been hit most? How many hits were made to
 the path?  
 	Ans: Path:  **/assets/css/combined.css**  has been hit 115101 times
