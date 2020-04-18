@@ -123,7 +123,7 @@
 	`select count(*) from cloud_log.access_log where IP_Address = '10.207.188.188' ;`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q2.PNG) 
 
-###For Q3 and Q4, we will use python scripts and `Cassandra-driver`
+### For Q3 and Q4, we will use python scripts and `Cassandra-driver`
 	First run:
 	`pip install cassandra-driver`
 
