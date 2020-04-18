@@ -129,15 +129,17 @@
 
 3. Which path in the website has been hit most? How many hits were made to
 the path?  
-	Ans: Path:  **/assets/css/combined.css**  has been hit  115101  times
+	Ans: Path:  **/assets/css/combined.css**  has been hit 115101 times
 	
-	Run the script: `python Cassandra_most_path.py`
+	Run the script: `python Cassandra_most_path.py`  
+	
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q3.PNG)
 	
 4. Which IP accesses the website most? How many accesses were made by it?  
-	Ans: Path:  **/assets/css/combined.css**  has been hit  115101  times
+	Ans: IP:  **10.216.113.172**  has been accessed 158298 times
 	
-	Run the script: ` python Cassandra_most_ip.py`
+	Run the script: ` python Cassandra_most_ip.py`  
+	
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q4.PNG)
 
 
