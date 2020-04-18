@@ -117,17 +117,27 @@
 	`select count(*) from request_line_details where path = '/assets/img/release-schedule-logo.png\';`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q1.PNG)
 
-2. How many hits were made from the IP: 10.207.188.188?
+2. How many hits were made from the IP: 10.207.188.188?  
 	Ans: 398
 
 	`select count(*) from cloud_log.access_log where IP_Address = '10.207.188.188' ;`
 	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q2.PNG) 
 
+###For Q3 and Q4, we will use python scripts and `Cassandra-driver`
+	First run:
+	`pip install cassandra-driver`
 
 3. Which path in the website has been hit most? How many hits were made to
-the path?
-
-4. Which IP accesses the website most? How many accesses were made by it?
- 
+the path?  
+	Ans: Path:  **/assets/css/combined.css**  has been hit  115101  times
+	
+	Run the script: `python Cassandra_most_path.py`
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q3.PNG)
+	
+4. Which IP accesses the website most? How many accesses were made by it?  
+	Ans: Path:  **/assets/css/combined.css**  has been hit  115101  times
+	
+	Run the script: ` python Cassandra_most_ip.py`
+	![alt text](https://github.com/nishchalnigam/2750-Cassandra/blob/master/Gallery/Q4.PNG)
 
 
